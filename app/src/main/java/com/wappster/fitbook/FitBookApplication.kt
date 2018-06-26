@@ -5,6 +5,7 @@ import android.content.Context
 import android.net.ConnectivityManager
 import com.wappster.fitbook.dagger.*
 import timber.log.Timber
+import uk.co.chrisjenx.calligraphy.CalligraphyConfig
 
 class FitBookApplication : Application() {
 
@@ -23,10 +24,18 @@ class FitBookApplication : Application() {
     override fun onCreate() {
         super.onCreate()
         initDi()
+        initCalligraphy()
         initTimber()
     }
 
-    open fun initDi() {
+    private fun initCalligraphy() {
+        CalligraphyConfig.initDefault(CalligraphyConfig.Builder()
+                .setDefaultFontPath("fonts/Quicksand-Regular.ttf")
+                .setFontAttrId(R.attr.fontPath)
+                .build())
+    }
+
+    fun initDi() {
         applicationComponent = DaggerApplicationComponent
                 .builder()
                 .applicationModule(ApplicationModule(this))
