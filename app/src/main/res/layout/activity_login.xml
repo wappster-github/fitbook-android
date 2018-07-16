@@ -45,7 +45,7 @@
 
         <EditText
             android:layout_width="match_parent"
-            android:layout_height="@dimen/height_50"
+            android:layout_height="@dimen/height_60"
             android:background="@drawable/background_edittext_stroked"
             android:textColor="@color/white"
             android:hint="@string/email"
@@ -56,7 +56,7 @@
 
         <EditText
             android:layout_width="match_parent"
-            android:layout_height="@dimen/height_50"
+            android:layout_height="@dimen/height_60"
             android:layout_marginTop="@dimen/margin_20"
             android:background="@drawable/background_edittext_stroked"
             android:textColor="@color/white"
@@ -68,7 +68,7 @@
 
         <Button
             android:layout_width="match_parent"
-            android:layout_height="@dimen/height_50"
+            android:layout_height="@dimen/height_60"
             android:layout_marginTop="@dimen/margin_20"
             android:background="@drawable/background_button_purple_light"
             android:text="Sign in"
@@ -76,7 +76,7 @@
 
         <Button
             android:layout_width="match_parent"
-            android:layout_height="@dimen/height_50"
+            android:layout_height="@dimen/height_60"
             android:layout_marginTop="@dimen/margin_20"
             android:background="@drawable/background_button_purple_dark"
             android:text="Sign up"

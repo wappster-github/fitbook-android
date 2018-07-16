@@ -1,6 +1,6 @@
 package com.wappster.fitbook.dagger
 
-import com.wappster.fitbook.FitBookApplication
+import com.wappster.fitbook.app.FitBookApplication
 import dagger.Module
 import dagger.Provides
 import okhttp3.Cache

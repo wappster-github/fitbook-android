@@ -1,7 +1,7 @@
 package com.wappster.fitbook.dagger
 
 import com.wappster.fitbook.BuildConfig
-import com.wappster.fitbook.FitBookApplication
+import com.wappster.fitbook.app.FitBookApplication
 import com.wappster.fitbook.utils.Constants
 import dagger.Module
 import dagger.Provides

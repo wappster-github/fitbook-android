@@ -4,7 +4,7 @@ import android.content.Intent
 import android.content.SharedPreferences
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
-import com.wappster.fitbook.FitBookApplication
+import com.wappster.fitbook.app.FitBookApplication
 import com.wappster.fitbook.ui.login.LoginActivity
 import com.wappster.fitbook.ui.tutorial.TutorialActivity
 import com.wappster.fitbook.utils.Constants

@@ -1,8 +1,10 @@
-package com.wappster.fitbook
+package com.wappster.fitbook.app
 
 import android.app.Application
 import android.content.Context
 import android.net.ConnectivityManager
+import com.wappster.fitbook.BuildConfig
+import com.wappster.fitbook.R
 import com.wappster.fitbook.dagger.*
 import timber.log.Timber
 import uk.co.chrisjenx.calligraphy.CalligraphyConfig
