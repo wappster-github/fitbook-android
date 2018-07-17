@@ -32,7 +32,7 @@ class FitBookApplication : Application() {
 
     private fun initCalligraphy() {
         CalligraphyConfig.initDefault(CalligraphyConfig.Builder()
-                .setDefaultFontPath("fonts/Quicksand-Regular.ttf")
+                .setDefaultFontPath("fonts/Quicksand-Medium.ttf")
                 .setFontAttrId(R.attr.fontPath)
                 .build())
     }

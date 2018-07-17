@@ -8,5 +8,6 @@
     <color name="purpleDark">#26376d</color>
     <color name="transparentPurpleLight">#504d5ec8</color>
     <color name="transparentGray">#50FFFFFF</color>
+    <color name="gray">#9da1a7</color>
 
 </resources>

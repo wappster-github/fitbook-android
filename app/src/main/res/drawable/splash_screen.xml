@@ -5,16 +5,7 @@
 
     <item>
         <bitmap
-            android:gravity="center"
-            android:src="@drawable/logo" />
-<!--
-        <bitmap
-            android:gravity="bottom|center_horizontal"
-            android:src="@drawable/powered_by" />-->
-
-        <bitmap
-            android:gravity="bottom|center_horizontal"
-            android:src="@drawable/wappster" />
+            android:src="@drawable/splashscreen" />
     </item>
 
 </layer-list>

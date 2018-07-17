@@ -1,50 +1,132 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:attrs="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.tutorial.TutorialActivity">
+    android:background="@color/gray"
+    tools:context=".ui.tutorial.TutorialActivity"
+    tools:ignore="MissingPrefix">
+
+    <android.support.v4.view.ViewPager
+        android:id="@+id/viewPager"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_centerVertical="true">
+
+
+        <ImageView
+            android:id="@+id/logoImageView"
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            android:layout_marginBottom="@dimen/margin_20"
+            android:layout_marginStart="50dp"
+            android:paddingStart="@dimen/margin_10"
+            attrs:srcCompat="@drawable/logo_white" />
+
+
+        <LinearLayout
+            android:id="@+id/titleLayout"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignStart="@+id/logoImageView"
+            android:layout_below="@+id/logoImageView">
+
+            <TextView
+                fontPath="fonts/Quicksand-Regular.ttf"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="welcome to "
+                android:textColor="@color/white"
+                android:textSize="20sp" />
+
+            <TextView
+                fontPath="fonts/Quicksand-Bold.ttf"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="fitbook"
+                android:textColor="@color/white"
+                android:textSize="20sp" />
+
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/descriptionTextView"
+            fontPath="fonts/Quicksand-Bold.ttf"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignStart="@+id/logoImageView"
+            android:layout_below="@+id/titleLayout"
+            android:text="Best Workout."
+            android:textColor="@color/white"
+            android:textSize="30sp"
+            android:visibility="invisible" />
+
+        <TextView
+            android:id="@+id/trustedTextView"
+            fontPath="fonts/Quicksand-Light.ttf"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignStart="@+id/logoImageView"
+            android:layout_below="@+id/descriptionTextView"
+            android:text="Trusted by the best coaches in the world."
+            android:textColor="@color/white"
+            android:textSize="12sp" />
+
+    </RelativeLayout>
 
     <Button
         android:id="@+id/skipButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="16dp"
-        android:layout_marginEnd="16dp"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginBottom="30dp"
+        android:layout_marginEnd="30dp"
         android:background="?android:attr/selectableItemBackground"
-        android:drawableEnd="@android:drawable/arrow_down_float"
         android:text="@string/skip"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent" />
+        android:textAllCaps="false"
+        android:textColor="@color/white" />
 
-    <com.rd.PageIndicatorView
-        android:id="@+id/pageIndicatorView"
+    <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="8dp"
-        android:layout_marginStart="8dp"
-        app:layout_constraintBottom_toBottomOf="@+id/skipButton"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/skipButton"
-        app:piv_animationType="scale"
-        app:piv_dynamicCount="true"
-        app:piv_interactiveAnimation="true"
-        app:piv_selectedColor="@color/white"
-        app:piv_unselectedColor="@color/transparentGray"
-        app:piv_viewPager="@id/viewPager"
-        attrs:piv_padding="12dp"
-        attrs:piv_radius="8dp" />
+        android:layout_alignBottom="@id/skipButton"
+        android:layout_alignTop="@id/skipButton"
+        android:layout_centerHorizontal="true"
+        android:gravity="center_vertical">
 
-    <android.support.v4.view.ViewPager
-        android:id="@+id/viewPager"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"></android.support.v4.view.ViewPager>
+        <ImageView
+            android:id="@+id/circleOne"
+            android:layout_width="10dp"
+            android:layout_height="10dp"
+            android:layout_marginEnd="@dimen/margin_10"
+            attrs:srcCompat="@drawable/circle_while" />
 
-</android.support.constraint.ConstraintLayout>
+        <ImageView
+            android:id="@+id/circleTwo"
+            android:layout_width="10dp"
+            android:layout_height="10dp"
+            android:layout_marginEnd="@dimen/margin_10"
+            attrs:srcCompat="@drawable/circle_gray" />
+
+        <ImageView
+            android:id="@+id/circleThree"
+            android:layout_width="10dp"
+            android:layout_height="10dp"
+            android:layout_marginEnd="@dimen/margin_10"
+            attrs:srcCompat="@drawable/circle_gray" />
+
+        <ImageView
+            android:id="@+id/circleFour"
+            android:layout_width="10dp"
+            android:layout_height="10dp"
+            attrs:srcCompat="@drawable/circle_gray" />
+
+    </LinearLayout>
+
+</RelativeLayout>

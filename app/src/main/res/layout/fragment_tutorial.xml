@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:attrs="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/gray"
+    tools:context=".ui.tutorial.TutorialFragment"
+    tools:ignore="MissingPrefix">
+
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:scaleType="centerCrop"/>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_centerVertical="true">
+
+
+        <ImageView
+            android:id="@+id/logoImageView"
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            android:layout_marginBottom="@dimen/margin_20"
+            android:layout_marginStart="50dp"
+            android:paddingStart="@dimen/margin_10"
+            android:visibility="invisible"
+            attrs:srcCompat="@drawable/logo_white" />
+
+        <TextView
+            android:id="@+id/titleTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignStart="@+id/logoImageView"
+            android:layout_below="@+id/logoImageView"
+            android:text="@string/welcome_to_fitbook"
+            android:textColor="@color/white"
+            android:visibility="invisible"
+
+            android:textSize="20sp" />
+
+        <TextView
+            android:id="@+id/descriptionTextView"
+            fontPath="fonts/Quicksand-Bold.ttf"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignStart="@+id/logoImageView"
+            android:layout_below="@+id/titleTextView"
+            android:text="Best Workout."
+            android:textColor="@color/white"
+            android:textSize="30sp" />
+
+        <TextView
+            android:id="@+id/trustedTextView"
+            fontPath="fonts/Quicksand-Light.ttf"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignStart="@+id/logoImageView"
+            android:layout_below="@+id/descriptionTextView"
+            android:visibility="invisible"
+            android:text="Trusted by the best coaches in the world."
+            android:textColor="@color/white"
+            android:textSize="12sp" />
+
+    </RelativeLayout>
+
+
+</RelativeLayout>

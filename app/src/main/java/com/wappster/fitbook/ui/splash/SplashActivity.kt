@@ -23,11 +23,13 @@ class SplashActivity : AppCompatActivity() {
     }
 
     private fun checkFirstLaunch() {
-        if (sharedPreferences.getBoolean(Constants.IS_FIRST_LAUNCH, true)) {
-            sharedPreferences.edit().putBoolean(Constants.IS_FIRST_LAUNCH, false).apply()
-            startActivity(Intent(this, TutorialActivity::class.java))
-        } else {
-            startActivity(Intent(this, LoginActivity::class.java))
-        }
+        startActivity(Intent(this, TutorialActivity::class.java))
+        /*     if (sharedPreferences.getBoolean(Constants.IS_FIRST_LAUNCH, true)) {
+                 sharedPreferences.edit().putBoolean(Constants.IS_FIRST_LAUNCH, false).apply()
+                 startActivity(Intent(this, TutorialActivity::class.java))
+             } else {
+                 startActivity(Intent(this, LoginActivity::class.java))
+             }*/
+        finish()
     }
 }
