@@ -8,6 +8,11 @@ import com.wappster.fitbook.R
 import com.wappster.fitbook.dagger.*
 import timber.log.Timber
 import uk.co.chrisjenx.calligraphy.CalligraphyConfig
+import com.crashlytics.android.Crashlytics;
+import com.crashlytics.android.answers.Answers
+import io.fabric.sdk.android.Fabric;
+
+
 
 class FitBookApplication : Application() {
 
@@ -25,9 +30,14 @@ class FitBookApplication : Application() {
 
     override fun onCreate() {
         super.onCreate()
+        initFabric()
         initDi()
         initCalligraphy()
         initTimber()
+    }
+
+    private fun initFabric() {
+        Fabric.with(this, Crashlytics(), Answers())
     }
 
     private fun initCalligraphy() {

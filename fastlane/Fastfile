@@ -18,9 +18,18 @@ platform :android do
   end
 
   desc "Submit a new Beta Build to Crashlytics Beta"
-  lane :beta do
-    gradle(task: "clean assembleRelease")
-    crashlytics
+  lane :beta do |options|
+    gradle(
+      task: 'assemble',
+      build_type: 'preprodRelease'
+    )
+
+    emails = (options[:team] ? ['smida.haroun@gmail.com', 'boukhit.hatem@gmail.com', 'marwa.dandana@gmail.com', 'skanderfathallah07@gmail.com'] : ['smida.haroun@gmail.com'])
+    crashlytics(api_token: 'bc413a5e8e6f60c73de4a8ea213026027bcfc146',
+             build_secret: '16718bd33690ba8146d24edc6f934c82177a5e5479da629954a618abb0e623ed',
+                   emails: emails,
+                   groups: nil,
+            notifications: true) # Should this distribution notify your testers via email?
   
     # sh "your_script.sh"
     # You can also use other beta testing services here
@@ -30,5 +39,10 @@ platform :android do
   lane :deploy do
     gradle(task: "clean assembleRelease")
     upload_to_play_store
+  end
+
+
+  error do |lane, exception|
+    # This block is called, if there was an error running a specific lane.
   end
 end

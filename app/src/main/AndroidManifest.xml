@@ -12,6 +12,9 @@
         android:label="@string/app_name"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
+        <meta-data
+            android:name="io.fabric.ApiKey"
+            android:value="bc413a5e8e6f60c73de4a8ea213026027bcfc146" />
         <activity
             android:name=".ui.splash.SplashActivity"
             android:theme="@style/AppTheme.SplashScreen"
