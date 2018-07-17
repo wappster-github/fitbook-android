@@ -17,7 +17,7 @@ import io.fabric.sdk.android.Fabric;
 class FitBookApplication : Application() {
 
     companion object {
-        lateinit var applicationComponent: ApplicationComponent
+//        lateinit var applicationComponent: ApplicationComponent
 
         lateinit var instance: FitBookApplication
 
@@ -31,7 +31,6 @@ class FitBookApplication : Application() {
     override fun onCreate() {
         super.onCreate()
         initFabric()
-        initDi()
         initCalligraphy()
         initTimber()
     }
@@ -47,7 +46,7 @@ class FitBookApplication : Application() {
                 .build())
     }
 
-    fun initDi() {
+/*    fun initDi() {
         applicationComponent = DaggerApplicationComponent
                 .builder()
                 .applicationModule(ApplicationModule(this))
@@ -55,7 +54,7 @@ class FitBookApplication : Application() {
                 .interceptorModule(InterceptorModule())
                 .apiModule(ApiModule())
                 .build()
-    }
+    }*/
 
     private fun initTimber() {
         if (BuildConfig.DEBUG) {

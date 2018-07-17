@@ -5,6 +5,7 @@ import com.wappster.fitbook.app.FitBookApplication
 import com.wappster.fitbook.utils.Constants
 import dagger.Module
 import dagger.Provides
+import dagger.Reusable
 import okhttp3.CacheControl
 import okhttp3.Interceptor
 import okhttp3.logging.HttpLoggingInterceptor
@@ -14,30 +15,20 @@ import javax.inject.Named
 import javax.inject.Singleton
 
 /**
- * Created by riteshkumarsingh on 31/10/17.
+ * Module which provides all required dependencies about network
  */
 @Module
-class InterceptorModule {
+// Safe here as we are dealing with a Dagger 2 module
+@Suppress("unused")
+object InterceptorModule {
+
+  /**
+   * Provides the Post service implementation.
+   * @return OkHttpClient used to create Retrofit instance
+   */
   @Provides
-  @Singleton
-  @Named(Constants.cacheInterceptor)
-  fun providesCacheInterceptor(): Interceptor {
-    return Interceptor { chain ->
-      val response = chain.proceed(chain.request())
-
-      // re-write response header to force use of cache
-      val cacheControl = CacheControl.Builder()
-          .maxAge(2, TimeUnit.MINUTES)
-          .build()
-
-      response.newBuilder()
-          .header(Constants.CACHE_CONTROL, cacheControl.toString())
-          .build()
-    }
-  }
-
-  @Provides
-  @Singleton
+  @Reusable
+  @JvmStatic
   @Named(Constants.urlAndHeaderInterceptor)
   fun provideUrlAndHeaderInterceptor(): Interceptor {
     return Interceptor { chain ->
@@ -56,29 +47,13 @@ class InterceptorModule {
     }
   }
 
-
+  /**
+   * Provides the Post service implementation.
+   * @return OkHttpClient used to create Retrofit instance
+   */
   @Provides
-  @Singleton
-  @Named(Constants.offlineCacheInterceptor)
-  fun provideOfflineCacheInterceptor(): Interceptor {
-    return Interceptor { chain ->
-      var request = chain.request()
-      if (!FitBookApplication.checkIfHasNetwork()) { // If no network
-        val cacheControl = CacheControl.Builder()
-            .maxStale(7, TimeUnit.DAYS) // Stale for 7 days, with the expired cache
-            .build()
-
-        request = request.newBuilder()
-            .cacheControl(cacheControl)
-            .build()
-      }
-
-      chain.proceed(request);
-    }
-  }
-
-  @Provides
-  @Singleton
+  @Reusable
+  @JvmStatic
   fun provideHttpLoggingInterceptor(): HttpLoggingInterceptor {
     val httpLoggingInterceptor = HttpLoggingInterceptor(
         HttpLoggingInterceptor.Logger { message -> Timber.d(message) })

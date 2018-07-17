@@ -4,13 +4,14 @@ import android.content.Intent
 import android.os.Bundle
 import android.support.v4.content.ContextCompat
 import android.support.v4.view.ViewPager
+import android.support.v7.app.AppCompatActivity
 import com.wappster.fitbook.R
 import com.wappster.fitbook.adapters.TutorialPagerAdapter
 import com.wappster.fitbook.ui.base.BaseActivity
 import com.wappster.fitbook.ui.login.LoginActivity
 import kotlinx.android.synthetic.main.activity_tutorial.*
 
-class TutorialActivity : BaseActivity() {
+class TutorialActivity : AppCompatActivity() {
 
     private lateinit var pagerAdapter: TutorialPagerAdapter
 

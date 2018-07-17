@@ -64,6 +64,10 @@ android {
             buildConfigField "String", "URL_BASE", "\"$prodBaseUrl\""
         }
     }
+
+    dataBinding {
+        enabled = true
+    }
 }
 
 repositories {
@@ -90,6 +94,8 @@ dependencies {
 
     implementation 'com.jakewharton.timber:timber:4.5.1'
 
+    // Rx
+    implementation "io.reactivex.rxjava2:rxjava:2.1.10"
     implementation "io.reactivex.rxjava2:rxandroid:2.0.2"
 
     implementation 'uk.co.chrisjenx:calligraphy:2.2.0'
@@ -101,4 +107,7 @@ dependencies {
     implementation('com.crashlytics.sdk.android:crashlytics:2.9.4@aar') {
         transitive = true
     }
+
+    // Data binding
+    kapt "com.android.databinding:compiler:3.1.3"
 }

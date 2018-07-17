@@ -12,13 +12,12 @@ import javax.inject.Inject
 
 class SplashActivity : AppCompatActivity() {
 
-    @Inject
-    lateinit var sharedPreferences: SharedPreferences
+//    @Inject
+//    lateinit var sharedPreferences: SharedPreferences
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        FitBookApplication.applicationComponent.inject(this)
         checkFirstLaunch()
     }
 

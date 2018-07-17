@@ -2,12 +2,13 @@ package com.wappster.fitbook.ui.register
 
 import android.graphics.Paint
 import android.os.Bundle
+import android.support.v7.app.AppCompatActivity
 import com.wappster.fitbook.R
 import com.wappster.fitbook.ui.base.BaseActivity
 import kotlinx.android.synthetic.main.activity_register.*
 
 
-class RegisterActivity : BaseActivity() {
+class RegisterActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
