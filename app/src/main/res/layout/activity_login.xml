@@ -171,15 +171,17 @@
                         android:background="@color/white" />
 
                     <Button
+                        android:id="@+id/googleSignInButton"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:layout_toStartOf="@+id/separatorView"
                         android:background="?android:attr/selectableItemBackground"
-                        android:text="Login with Twitter"
+                        android:text="Login with Google"
                         android:textAllCaps="false"
                         android:textColor="@color/white" />
 
                     <Button
+                        android:id="@+id/facebookSignInButton"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:layout_toEndOf="@+id/separatorView"

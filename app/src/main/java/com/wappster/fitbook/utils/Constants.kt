@@ -14,5 +14,7 @@ class Constants {
         var BASE_URL = "http://api.apixu.com/v1/"
 
         const val IS_FIRST_LAUNCH = "IS_FIRST_LAUNCH"
+
+        const val RC_SIGN_IN = 1234
     }
 }

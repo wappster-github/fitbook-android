@@ -31,9 +31,7 @@ object NetworkModule {
     /**
      * Provides the Post service implementation.
      * @param httpLoggingInterceptor the Retrofit object used to instantiate the service
-     * @param cacheInterceptor the Retrofit object used to instantiate the service
      * @param urlAndHeaderInterceptor the Retrofit object used to instantiate the service
-     * @param offlineCacheInterceptor the Retrofit object used to instantiate the service
      * @return OkHttpClient used to create Retrofit instance
      */
     @Provides

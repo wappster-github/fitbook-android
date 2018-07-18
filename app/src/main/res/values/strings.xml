@@ -4,7 +4,10 @@
     <string name="welcome_to_fitbook">welcome to fitbook</string>
     <string name="password">Password</string>
 
-    <!-- TODO: Remove or change this placeholder text -->
+    <string name="facebook_app_id">269261413452742</string>
+    <string name="fb_login_protocol_scheme">fb269261413452742</string>
+
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="unknown_error">Unknow Error</string>
+    <string name="request_canceled">Request was canceled</string>
 </resources>

@@ -1,38 +1,36 @@
 package com.wappster.fitbook.app
 
 import android.app.Application
-import android.content.Context
-import android.net.ConnectivityManager
+import com.crashlytics.android.Crashlytics
+import com.crashlytics.android.answers.Answers
+import com.facebook.FacebookSdk
+import com.facebook.appevents.AppEventsLogger
+import com.google.firebase.FirebaseApp
 import com.wappster.fitbook.BuildConfig
 import com.wappster.fitbook.R
-import com.wappster.fitbook.dagger.*
+import io.fabric.sdk.android.Fabric
 import timber.log.Timber
 import uk.co.chrisjenx.calligraphy.CalligraphyConfig
-import com.crashlytics.android.Crashlytics;
-import com.crashlytics.android.answers.Answers
-import io.fabric.sdk.android.Fabric;
-
 
 
 class FitBookApplication : Application() {
 
-    companion object {
-//        lateinit var applicationComponent: ApplicationComponent
-
-        lateinit var instance: FitBookApplication
-
-        fun checkIfHasNetwork(): Boolean {
-            val cm = instance.getSystemService(Context.CONNECTIVITY_SERVICE) as ConnectivityManager
-            val networkInfo = cm.activeNetworkInfo
-            return networkInfo != null && networkInfo.isConnected
-        }
-    }
-
     override fun onCreate() {
         super.onCreate()
+        initFacebook()
+        initFirebase()
         initFabric()
         initCalligraphy()
         initTimber()
+    }
+
+    private fun initFacebook() {
+        FacebookSdk.sdkInitialize(applicationContext);
+        AppEventsLogger.activateApp(this);
+    }
+
+    private fun initFirebase() {
+        FirebaseApp.initializeApp(this)
     }
 
     private fun initFabric() {
@@ -45,16 +43,6 @@ class FitBookApplication : Application() {
                 .setFontAttrId(R.attr.fontPath)
                 .build())
     }
-
-/*    fun initDi() {
-        applicationComponent = DaggerApplicationComponent
-                .builder()
-                .applicationModule(ApplicationModule(this))
-                .cacheModule(CacheModule())
-                .interceptorModule(InterceptorModule())
-                .apiModule(ApiModule())
-                .build()
-    }*/
 
     private fun initTimber() {
         if (BuildConfig.DEBUG) {
