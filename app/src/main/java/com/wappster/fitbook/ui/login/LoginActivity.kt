@@ -19,10 +19,10 @@ class LoginActivity : BaseActivity<LoginPresenter>(), LoginView {
         window.setBackgroundDrawableResource(R.drawable.background_login)
 
         presenter.onViewCreated()
-        bindViews()
+        initializeClickListeners()
     }
 
-    private fun bindViews() {
+    private fun initializeClickListeners() {
         signInButton.setOnClickListener{ presenter.onLoginClicked(emailEditText.text.toString(), passwordEditText.text.toString())}
         signUpButton.setOnClickListener { presenter.onRegisterClicked()}
         googleSignInButton.setOnClickListener { presenter.onGoogleSignInClicked() }

@@ -2,6 +2,7 @@ package com.wappster.fitbook.dagger
 
 import com.wappster.fitbook.ui.base.BaseView
 import com.wappster.fitbook.ui.login.LoginPresenter
+import com.wappster.fitbook.ui.register.RegisterPresenter
 import dagger.BindsInstance
 import dagger.Component
 import javax.inject.Singleton
@@ -17,6 +18,12 @@ interface PresenterInjector {
      * @param loginPresenter LoginPresenter in which to inject the dependencies
      */
     fun inject(loginPresenter: LoginPresenter)
+
+    /**
+     * Injects required dependencies into the specified PostPresenter.
+     * @param registerPresenter RegisterPresenter in which to inject the dependencies
+     */
+    fun inject(registerPresenter: RegisterPresenter)
 
     @Component.Builder
     interface Builder {

@@ -56,6 +56,7 @@
         android:paddingTop="@dimen/margin_10">
 
         <EditText
+            android:id="@+id/emailEditText"
             android:layout_width="match_parent"
             android:layout_height="@dimen/height_50"
             android:background="@drawable/background_edittext_stroked"
@@ -68,6 +69,7 @@
             android:textSize="@dimen/edittext_text_size" />
 
         <EditText
+            android:id="@+id/passwordEditText"
             android:layout_width="match_parent"
             android:layout_height="@dimen/height_50"
             android:layout_marginTop="@dimen/margin_20"
@@ -89,6 +91,7 @@
             android:textColor="@color/white" />
 
         <TextView
+            android:id="@+id/signUpButton"
             fontPath="fonts/Quicksand-Bold.ttf"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"

@@ -72,26 +72,6 @@ class LoginPresenter(loginView: LoginView) : BasePresenter<LoginView>(loginView)
         })
     }
 
-    private fun handleFacebookAccessToken(token: AccessToken) {
-        Log.d("TAG", "handleFacebookAccessToken:$token")
-
-        val credential = FacebookAuthProvider.getCredential(token.token)
-        mAuth?.signInWithCredential(credential)
-                ?.addOnCompleteListener(view.getContext() as Activity) { task ->
-                    if (task.isSuccessful) {
-                        // Sign in success, update UI with the signed-in user's information
-                        Log.d("TAG", "signInWithCredential:success")
-                        val user = mAuth?.currentUser
-                        Log.d("TAG", "signInWithCredential:${user?.displayName}")
-                    } else {
-                        // If sign in fails, display a message to the user.
-                        Log.w("TAG", "signInWithCredential:failure", task.getException())
-                        Toast.makeText(view.getContext(), "Authentication failed.",
-                                Toast.LENGTH_SHORT).show()
-                    }
-                }
-    }
-
     fun onLoginClicked(email: String, password: String) {
         view.showLoading()
         subscription = apiService
@@ -122,19 +102,24 @@ class LoginPresenter(loginView: LoginView) : BasePresenter<LoginView>(loginView)
         LoginManager.getInstance().logInWithReadPermissions(view.getContext() as Activity, listOf("email", "public_profile"))
     }
 
-    fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
-        if (requestCode == RC_SIGN_IN) {
-            val task = GoogleSignIn.getSignedInAccountFromIntent(data)
-            try {
-                val account = task.getResult(ApiException::class.java)
-                firebaseAuthWithGoogle(account)
-            } catch (e: ApiException) {
-                view.showError(e.localizedMessage)
-            }
+    private fun handleFacebookAccessToken(token: AccessToken) {
+        Log.d("TAG", "handleFacebookAccessToken:$token")
 
-        } else {
-            callbackManager?.onActivityResult(requestCode, resultCode, data)
-        }
+        val credential = FacebookAuthProvider.getCredential(token.token)
+        mAuth?.signInWithCredential(credential)
+                ?.addOnCompleteListener(view.getContext() as Activity) { task ->
+                    if (task.isSuccessful) {
+                        // Sign in success, update UI with the signed-in user's information
+                        Log.d("TAG", "signInWithCredential:success")
+                        val user = mAuth?.currentUser
+                        Log.d("TAG", "signInWithCredential:${user?.displayName}")
+                    } else {
+                        // If sign in fails, display a message to the user.
+                        Log.w("TAG", "signInWithCredential:failure", task.getException())
+                        Toast.makeText(view.getContext(), "Authentication failed.",
+                                Toast.LENGTH_SHORT).show()
+                    }
+                }
     }
 
     private fun firebaseAuthWithGoogle(acct: GoogleSignInAccount) {
@@ -153,6 +138,21 @@ class LoginPresenter(loginView: LoginView) : BasePresenter<LoginView>(loginView)
                         view.showError(task.exception!!.localizedMessage)
                     }
                 }
+    }
+
+    fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+        if (requestCode == RC_SIGN_IN) {
+            val task = GoogleSignIn.getSignedInAccountFromIntent(data)
+            try {
+                val account = task.getResult(ApiException::class.java)
+                firebaseAuthWithGoogle(account)
+            } catch (e: ApiException) {
+                view.showError(e.localizedMessage)
+            }
+
+        } else {
+            callbackManager?.onActivityResult(requestCode, resultCode, data)
+        }
     }
 
     override fun onViewDestroyed() {
